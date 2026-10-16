@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back Tax Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="calculator">
+<div style="text-align: center; margin-bottom: 15px;">
+<img src="logo.jpg" alt="Municipal Assessor's Office Logo" style="max-width: 120px; height: auto; border-radius: 8px;">
+</div>
+<h1>Back Tax Calculator</h1>
+<div class="grid">
+<div><label>Covered Year From</label><input id="yearFrom" type="number" min="0" step="1" placeholder="e.g. 2019"></div>
+<div><label>Covered Year To</label><input id="yearTo" type="number" min="0" step="1" placeholder="e.g. 2023"></div>
+<div><label for="kind">Kind</label><select id="kind" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ccc;border-radius:8px;font-size:16px;background-color:#fff;color:#222"><option value="Residential">Residential</option><option value="Agricultural">Agricultural</option></select></div>
+<div><label for="area">Area</label><input id="area" type="number" min="0" step="any" placeholder="e.g. 500"><div class="hint" id="areaHint">Square meters</div></div>
+<div><label>Unit Value</label><input id="unit" type="number" min="0" step="any" placeholder="e.g. 95200"><div class="hint">Value per unit</div></div>
+<div><label>Adjustment Factor (%)</label><input id="adjustment" type="number" min="0" step="any" value="100"></div>
+<div><label>Assessment Level (%)</label><input id="assessment" type="number" min="0" step="any" value="20"></div>
+</div>
+<div class="result">
+<div class="result-label">Assessed Value</div>
+<div class="value" id="result">₱0.00</div>
+<div class="formula" id="formula">Area (square meters) × Unit Value × Adjustment Factor % × Assessment Level %</div>
+</div>
+<button id="saveBtn" onclick="saveData()">Save Data</button>
+<button id="resetBtn" onclick="resetCalc()">Reset</button>
+<div class="records">
+<h2>Saved Records</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Covered<br>Year</th>
+  <th>Kind</th>
+  <th>Area</th>
+  <th>Unit<br>Value</th>
+  <th>Adjustment<br>Factor</th>
+  <th>Assessment<br>Level</th>
+  <th>Assessed<br>Value</th>
+</tr>
+</thead>
+<tbody id="recordsBody">
+<tr><td colspan="8" class="empty-record">No saved records.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
